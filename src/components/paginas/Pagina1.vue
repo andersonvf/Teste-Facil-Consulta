@@ -1,19 +1,16 @@
 <template>
   <div class="center-screen">
     <div class="container-fluid">
-      <!-- Container Branco Comeco-->
       <h2 class="titulo">{{ Titulo }}</h2>
       <h5 class="subTitulo">{{ Subtitulo }}</h5>
       <div class="row">
 
-        <form @submit="$router.push('atendimento')" style="margin: 5% 0px 0px 5%;">
+        <form action="/atendimento" style="margin: 5% 0px 0px 5%;">
           <div class="form-group">
             <label class="tituloInput" for="name">Nome Completo*</label>
-            <input type="name" required class="form-control inputName" style="text-transform: capitalize;" id="name"
-              name="name" aria-describedby="name" v-model="formValues.nome" minlength="3" maxlength="48"
-              placeholder="digite o nome completo">
+            <input type="text" required class="form-control inputName" id="name" name="name" aria-describedby="name"
+              v-model="formValues.nome" minlength="3" maxlength="48" placeholder="Digite o nome completo">
           </div>
-
           <div class="form-group">
             <label class="tituloInput" for="cpf">CPF*</label>
             <input type="text" inputmode="numeric" required v-model="formValues.cpf" class="form-control inputNumber"
@@ -68,7 +65,6 @@
         </form>
         <img src="../../assets/imagens/img1.png" style="width:400px;height:400px;" class="rounded ">
       </div>
-      <!-- Container Branco Final-->
     </div>
   </div>
 
@@ -76,35 +72,32 @@
 
 <script>
 
-// //Mascara de CPF
-document.addEventListener('keydown', function (event) { //pega o evento de precionar uma tecla
-  if (event.keyCode != 46 && event.keyCode != 8) {//verifica se a tecla precionada nao e um backspace e delete
-    var i = document.getElementById("CPF").value.length; //aqui pega o tamanho do input
-    if (i === 3 || i === 7) //aqui faz a divisoes colocando um ponto no terceiro e setimo indice
+document.addEventListener('keydown', function (event) {
+  if (event.keyCode != 46 && event.keyCode != 8) {
+    var i = document.getElementById("CPF").value.length;
+    if (i === 3 || i === 7)
       document.getElementById("CPF").value = document.getElementById("CPF").value + ".";
-    else if (i === 11) //aqui faz a divisao colocando o tracinho no decimo primeiro indice
+    else if (i === 11)
       document.getElementById("CPF").value = document.getElementById("CPF").value + "-";
   }
 });
 
-
-//Mascara de Numero Celular
-document.addEventListener('keydown', function (event) { //pega o evento de precionar uma tecla
-  if (event.keyCode != 46 && event.keyCode != 8) {//verifica se a tecla precionada nao e um backspace e delete
-    var i = document.getElementById("phone").value.length; //aqui pega o tamanho do input
-    if (i === 0) //aqui faz a divisoes colocando um ( 
+document.addEventListener('keydown', function (event) {
+  if (event.keyCode != 46 && event.keyCode != 8) {
+    var i = document.getElementById("phone").value.length;
+    if (i === 0)
       document.getElementById("phone").value = document.getElementById("phone").value + "(";
-    if (i === 3) //aqui faz a divisoes colocando um )
+    if (i === 3)
       document.getElementById("phone").value = document.getElementById("phone").value + ")";
-    if (i === 5) //aqui faz a divisoes colocando um espaco em branco apos o 5 indice
+    if (i === 5)
       document.getElementById("phone").value = document.getElementById("phone").value + " ";
-    else if (i === 10) //aqui faz a divisao colocando o tracinho no decimo indice
+    else if (i === 10)
       document.getElementById("phone").value = document.getElementById("phone").value + "-";
   }
 });
 
 export default {
-  name: 'FormProfissional',
+  name: 'Pagina1',
   data() {
     return {
       Titulo: 'Sobre o profissional',
@@ -119,7 +112,6 @@ export default {
 
   },
   methods: {
-    //Metodo para Input Number Only 
     NumbersOnly(evt) {
       evt = (evt) ? evt : window.event;
       var charCode = (evt.which) ? evt.which : evt.keyCode;
@@ -147,7 +139,6 @@ export default {
   }
 
 }
-
 
 
 </script>

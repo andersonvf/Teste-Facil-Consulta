@@ -2,14 +2,14 @@
     <div>
         <Titulo />
         <Subtitulo />
-        <Pagina3 />
+        <Pagina4 />
     </div>
 </template>
 
 <script>
 import Titulo from '../components/header/Titulo.vue'
 import Subtitulo from '../components/header/Subtitulo.vue'
-import Pagina3 from '../components/paginas/Pagina3.vue'
+import Pagina4 from '../components/paginas/Pagina4.vue'
 
 
 export default {
@@ -17,7 +17,7 @@ export default {
     components: {
         Titulo,
         Subtitulo,
-        Pagina3
+        Pagina4
     }
 }
 </script>
